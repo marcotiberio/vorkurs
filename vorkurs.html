@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vorkurs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @font-face {
+      font-family: 'II-Vorkurs-Medium';
+      src: url('II-Vorkurs-Medium.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'II-Vorkurs-Medium';
+      src: url('II-Vorkurs-Medium-Oblique.ttf') format('truetype');
+      font-weight: normal;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'II-Vorkurs-Bold';
+      src: url('II-Vorkurs-Bold.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'II-Vorkurs-Bold';
+      src: url('II-Vorkurs-Bold-Oblique.ttf') format('truetype');
+      font-weight: normal;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #000000;
+      --gray: #767676;
+      --white: #ffffff;
+      --page-padding: 20px;
+    }
+
+    body {
+      font-family: 'II-Vorkurs-Medium', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--black);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* --- Fixed Logo --- */
+    .logo {
+      font-family: 'II-Vorkurs-Bold', sans-serif;
+      font-size: 30px;
+      font-weight: normal;
+      letter-spacing: -0.9px;
+      color: var(--black);
+    }
+
+    .nav a {
+      font-family: 'II-Vorkurs-Bold', sans-serif;
+      font-size: 18px;
+      font-weight: normal;
+      letter-spacing: -0.54px;
+      color: var(--black);
+    }
+
+    .nav a:hover {
+      opacity: 0.6;
+    }
+
+    /* --- Main Content --- */
+    .page {
+      display: flex;
+      flex-direction: column;
+      padding: var(--page-padding);
+    }
+
+    /* --- Divider --- */
+    .divider {
+      width: 100%;
+      height: 2px;
+      background: var(--black);
+      margin: 40px 0;
+    }
+
+    .divider.thin {
+      height: 1px;
+      background: #ccc;
+      margin: 20px 0;
+    }
+
+    /* --- Hero --- */
+    .hero {
+      padding-top: 50px;
+      padding-bottom: 0;
+    }
+
+    .hero h2 {
+      font-size: 60px;
+      font-weight: normal;
+      line-height: 66px;
+      letter-spacing: -3px;
+      color: var(--black);
+      max-width: 100%;
+    }
+
+    .hero h2 .muted {
+      color: var(--gray);
+    }
+
+    /* --- Section Headers --- */
+    .section-title {
+      font-size: 45px;
+      font-weight: normal;
+      line-height: 54px;
+      letter-spacing: -2.25px;
+      color: var(--black);
+      margin-bottom: 30px;
+    }
+
+    /* --- Service Block --- */
+    .service-block {
+      margin-bottom: 30px;
+    }
+
+    .service-block h3 {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 24px;
+      letter-spacing: -0.6px;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+
+    .service-block p {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 24px;
+      letter-spacing: -0.6px;
+      color: var(--black);
+      max-width: 800px;
+    }
+
+    .service-block p + p {
+      margin-top: 10px;
+    }
+
+    /* --- Ways of Working --- */
+    .way-block {
+      margin-bottom: 30px;
+    }
+
+    .way-block h3 {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 24px;
+      letter-spacing: -0.6px;
+      color: var(--gray);
+      margin-bottom: 4px;
+    }
+
+    .way-block h3 .phase {
+      color: var(--gray);
+    }
+
+    .way-block p {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 24px;
+      letter-spacing: -0.6px;
+      color: var(--black);
+      max-width: 800px;
+    }
+
+    .way-block p.subtitle {
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+
+    .way-block p + p {
+      margin-top: 10px;
+    }
+
+    /* --- Case Studies --- */
+    .case-study {
+      margin-bottom: 40px;
+    }
+
+    .case-study h3 {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 24px;
+      letter-spacing: -0.6px;
+      color: var(--gray);
+      margin-bottom: 6px;
+    }
+
+    .case-study h3 .label {
+      display: block;
+      color: var(--gray);
+      font-size: 20px;
+    }
+
+    .case-study h4 {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 24px;
+      letter-spacing: -0.6px;
+      color: var(--gray);
+      margin-bottom: 6px;
+    }
+
+    .case-study p {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 24px;
+      letter-spacing: -0.6px;
+      color: var(--black);
+    }
+
+    .case-study p + p {
+      margin-top: 10px;
+    }
+
+    .case-study .ext-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 20px;
+      font-weight: normal;
+      letter-spacing: -0.6px;
+      color: var(--black);
+      text-decoration: underline;
+    }
+
+    .case-study .ext-link:hover {
+      opacity: 0.6;
+    }
+
+    /* --- Principles --- */
+    .principle {
+      margin-bottom: 30px;
+    }
+
+    .principle h3 {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 24px;
+      letter-spacing: -0.6px;
+      color: var(--gray);
+      margin-bottom: 6px;
+    }
+
+    .principle p {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 24px;
+      letter-spacing: -0.6px;
+      color: var(--black);
+      max-width: 800px;
+    }
+
+    /* --- Footer --- */
+
+    .footer-cta p {
+      font-size: 45px;
+      font-weight: normal;
+      line-height: 45px;
+      letter-spacing: -2.25px;
+      color: var(--black);
+      margin-bottom: 0;
+    }
+
+    .footer-cta a {
+      text-decoration: underline;
+    }
+
+    .footer {
+      display: flex;
+      gap: 80px;
+    }
+
+    .footer-col h4 {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 24px;
+      letter-spacing: -0.6px;
+      color: var(--gray);
+      margin-bottom: 6px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 24px;
+      letter-spacing: -0.6px;
+      color: var(--black);
+      display: block;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .divider {
+        width: 100%;
+        height: 2px;
+        background: var(--black);
+        margin: 20px 0;
+      }
+
+      .hero h2 {
+        font-size: 32px;
+        line-height: 36px;
+        letter-spacing: -1.5px;
+      }
+
+      .section-title {
+        font-size: 28px;
+        line-height: 34px;
+        letter-spacing: -1.2px;
+      }
+
+      .service-block p,
+      .service-block h3,
+      .way-block p,
+      .way-block h3,
+      .case-study p,
+      .case-study h3,
+      .case-study h4,
+      .principle p,
+      .principle h3,
+      .footer-cta p,
+      .footer-col h4,
+      .footer-col p,
+      .footer-col a {
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: -0.4px;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="fixed bg-white w-full mx-auto">
+    <div class="w-[calc(100%-40px)] mx-auto flex items-center justify-between py-[5px] px-0 border-b-2 border-black">
+      <!-- Logo -->
+      <a href="https://vorkurs.space" class="logo">vorkurs</a>
+
+      <!-- Nav -->
+      <nav class="nav">
+        <a href="mailto:space@vorkurs.space">get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page -->
+  <div class="page">
+
+    <!-- Hero -->
+    <div class="hero">
+      <h2>A strategic digital studio and consultancy for organisations looking to expand or reposition. We help teams make better digital decisions, design accessible systems, and build platforms that remain clear and resilient as they grow.<br><br>Our work is grounded in a simple belief: when form follows function, teams feel lighter, and users feel at ease.</h2>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Our Practice -->
+    <div class="w-full flex flex-col md:flex-row md:justify-between gap-0 md:gap-20">
+      <h2 class="md:w-1/3 section-title">Our practice</h2>
+
+      <div class="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+        <div class="service-block">
+          <h3>Consulting &amp; Strategy</h3>
+          <p>We help you understand what needs to happen, and what doesn't.</p>
+          <p>Before anything is built, we look at your goals, users, platform, and internal setup to bring clarity to complex situations.</p>
+          <p>This helps you avoid wrong investments, align teams, and make decisions you can stand behind.</p>
+        </div>
+
+        <div class="service-block">
+          <h3>System Design &amp; Brand Integration</h3>
+          <p>We turn ideas into clear, usable structures.</p>
+          <p>We design digital, brand, and content systems that work together in practice, not just on paper.</p>
+          <p>This makes it easier for teams to collaborate, stay consistent, and adapt over time.</p>
+        </div>
+
+        <div class="service-block">
+          <h3>Implementation &amp; Engineering</h3>
+          <p>We build things that work, and keep working.</p>
+          <p>We translate strategy into reliable digital products (such as websites and platforms) using modern, maintainable code. Our development approach is structured, well-documented, and designed for long-term use.</p>
+        </div>
+
+        <div class="service-block">
+          <h3>Stewardship &amp; Evolution</h3>
+          <p>We help you keep things healthy over time.</p>
+          <p>After launch, we stay involved to guide improvements, prevent drift, and make sure your system grows with you. This includes content guidance, technical upkeep, and ongoing strategic input.</p>
+        </div>
+
+        <div class="service-block">
+          <h3>Intelligence Setup</h3>
+          <p>We configure AI systems that actually understand your business.</p>
+          <p>Most teams know AI could save them time, but don't know where to start or how to set it up properly. We help you define where AI fits, configure tools like Claude, GPT, or internal copilots, and connect them to your workflows, brand, and documentation.</p>
+          <p>The result: intelligent assistants that reflect your standards, reduce repetitive work, and actually work in practice.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Ways of Working -->
+    <div class="w-full flex flex-col md:flex-row md:justify-between gap-0 md:gap-20">
+      <h2 class="md:w-1/3 section-title">Ways of Working</h2>
+
+      <div class="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+        <div class="way-block">
+          <h3>Clarify &amp; Launch – <span class="phase">Foundation Phase</span></h3>
+          <p class="subtitle">For when things feel unclear, heavy, or stuck.</p>
+          <p>Before you invest time and money in the wrong direction, this phase brings clarity. We assess what you have, define what you need, and deliver a clear platform, identity, or strategy you can move forward with.</p>
+          <p>Ideal for new ventures, brand refreshes, or teams that have outgrown their current setup.</p>
+        </div>
+
+        <div class="way-block">
+          <h3>Grow – <span class="phase">Strategic Evolution</span></h3>
+          <p class="subtitle">For when you're ready to scale without creating chaos.</p>
+          <p>We help you improve and expand your digital platform, brand, and experience in a structured way. By setting up systems, guidelines, and templates, we reduce the need for constant creative oversight.</p>
+          <p>This includes design, development, maintenance, and ongoing guidance.</p>
+        </div>
+
+        <div class="way-block">
+          <h3>Evolve – <span class="phase">Ongoing Partnership</span></h3>
+          <p class="subtitle">For teams who want long-term clarity and support.</p>
+          <p>When continuity matters, we stay closely involved as a trusted partner — guiding, adjusting, and protecting the integrity of your brand and platform over time. Think of it as a creative and strategic layer that stays with you.</p>
+        </div>
+
+        <div class="way-block">
+          <h3>Advise – <span class="phase">Strategic Advisory</span></h3>
+          <p class="subtitle">For leadership teams facing complex digital choices.</p>
+          <p>We act as an independent sounding board for major decisions — whether it's choosing a platform, evaluating a rebrand, or restructuring your digital operation.</p>
+          <p>You get senior perspective, honest feedback, and structured guidance, without having to hire full-time leadership.</p>
+          <p>Ideal for founders, directors, and executive teams.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Selected Case Studies -->
+    <div class="w-full flex flex-col md:flex-row md:justify-between gap-0 md:gap-20">
+      <h2 class="md:w-1/3 section-title">Selected Case Studies</h2>
+
+      <div class="md:w-2/3 grid grid-cols-1">
+        <div class="case-study">
+          <h3>citizenM - Global Hospitality Brand</h3>
+          <h4>Digital Governance &amp; Brand Systems</h4>
+          <p>Supported as senior creative lead within a global hospitality organisation across multiple markets, leading campaigns, brand activations, and communications across digital and physical channels.</p>
+          <p>Focused on consistency and scalability, developing reusable frameworks, aligning cross-functional teams, and ensuring brand coherence from global strategy through to local execution.</p>
+        </div>
+
+        <div class="case-study">
+          <h3>Renewable Energy &amp; Sustainable Economy</h3>
+          <h4>Digital Platforms &amp; Communications</h4>
+          <p>Supported organisations working in renewable energy and sustainable development — including GEAPP, CrossBoundary Energy, and the Sustainable Economy Summit — in improving how they communicate complex initiatives online.</p>
+          <p>Work included platform development, stakeholder alignment, and creating scalable structures for policy, funding, and programme communication — with accessibility and transparency as core principles.</p>
+        </div>
+
+        <div class="case-study">
+          <h3>GUP Magazine - Independent Media Organisation</h3>
+          <h4>Platform Redesign &amp; Digital Strategy</h4>
+          <p>Led the redesign and redevelopment of an independent photography magazine's digital platform, working closely with editorial and commercial leadership.</p>
+          <p>Focused on accessibility, content structure, and audience strategy — aligning design, technology, and editorial direction to support sustainable growth and long-term editorial independence.</p>
+        </div>
+
+        <div class="case-study">
+          <h3>Masterclass Festival Amsterdam - Performing Arts Festival</h3>
+          <h4>Brand Evolution &amp; Communications Strategy</h4>
+          <p>Working with festival leadership on an ongoing brand evolution — beginning with social media, print, and signage — to better reflect the festival's identity and reach new audiences.</p>
+        </div>
+
+        <div class="case-study">
+          <h3>Erik Kessels and Gallerie d'Italia - Artist and Exhibition Space</h3>
+          <h4>Creative Production &amp; Technical Direction</h4>
+          <p>Collaborated with artist and creative director Erik Kessels on Un'Immagine, a large-scale immersive installation presented at Gallerie d'Italia, Milan, opening October 2024.</p>
+          <p>The work draws on thousands of images from the Publifoto Archive, algorithmically stitched and morphed into a continuously moving 360-degree visual and sound experience, with an original soundtrack by Robin Rimbaud and Stefano Pilia.</p>
+          <p>The core challenge was translating a precise artistic vision into a technically complex output without losing its intent in the process. Working directly with Erik, I identified the right technical collaborator, then acted as the bridge between artistic direction and execution — interpreting the concept, managing the creative dialogue, and overseeing delivery to Gallerie d'Italia.</p>
+          <p>The exhibition opened to critical success.</p>
+          <a href="https://www.erikkessels.com/unimmagine" class="ext-link" target="_blank" rel="noopener">Link to exhibition</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Our Principles -->
+    <div class="w-full flex flex-col md:flex-row md:justify-between gap-0 md:gap-20">
+      <h2 class="md:w-1/3 section-title">Our principles</h2>
+
+      <div class="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+        <div class="principle">
+          <h3>Form follows function</h3>
+          <p>We begin with purpose before form. Every decision is shaped by use, context, and accessibility. Structure comes first, aesthetics follow. Simplicity is not reduction for its own sake, it is the result of systems designed to perform clearly and reliably in real conditions.</p>
+        </div>
+
+        <div class="principle">
+          <h3>True materials</h3>
+          <p>We work with what is real and sustainable for the client. Strategy, technology, and content must reflect your organisation's reality and ambitions. We select tools and structures for their durability, transparency, and long-term relevance, not for short-term appeal.</p>
+        </div>
+
+        <div class="principle">
+          <h3>Smart use of resources</h3>
+          <p>We treat time, budget, and attention as strategic assets. Our work is planned to minimise waste, avoid unnecessary complexity, and prioritise decisions that deliver lasting value. Efficiency, in our view, is a form of respect.</p>
+        </div>
+
+        <div class="principle">
+          <h3>Accessibility &amp; Universality</h3>
+          <p>Quality is measured by who can use it. We design systems that are inclusive, legible, and adaptable across abilities, devices, and contexts. Accessibility is embedded from the start, as a foundation for resilience, compliance, and long-term trust.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <footer class="w-full flex flex-col md:flex-row md:justify-between gap-0 md:gap-20">
+      <!-- Footer CTA -->
+      <div class="footer-cta">
+        <p>It's ok if you don't know where to start.<br>In that caseget in touch.</p>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+31629327875">+31629327875</a>
+          <a href="mailto:space@vorkurs.space">space@vorkurs.space</a>
+        </div>
+        <div class="footer-col">
+          <h4>Office</h4>
+          <p>Papaverhof 59,<br>1032 LX Amsterdam</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
